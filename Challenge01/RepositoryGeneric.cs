@@ -1,6 +1,6 @@
 ﻿namespace Challenge01
 {
-    public class RepositoryGeneric<TKey , TValue>
+    public class RepositoryGeneric<TKey , TValue> where TValue : IEntity<TKey>
     {
         public Dictionary<TKey, TValue> Store { get; init; } = new Dictionary<TKey, TValue>();
 
