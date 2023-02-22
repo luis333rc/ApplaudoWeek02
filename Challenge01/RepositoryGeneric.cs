@@ -1,32 +1,32 @@
 ﻿namespace Challenge01
 {
-    public class RepositoryGeneric<TKey , IEntity>
+    public class RepositoryGeneric<TKey , TValue> where TValue : IEntity<TKey>
     {
-        public Dictionary<TKey, IEntity> Store { get; init; } = new Dictionary<TKey, IEntity>();
+        public Dictionary<TKey, TValue> Store { get; init; } = new Dictionary<TKey, TValue>();
 
-        public IEntity Add(TKey tkey, IEntity tValue)
+        public TValue Add(TKey tkey, TValue tvalue)
         {
-            Store.Add(tkey, tValue);
+            Store.Add(tkey, tvalue);
             return Store[tkey];
         }
 
-        public IEntity Update(TKey tkey, IEntity tValue)
+        public TValue Update(TKey tkey, TValue tvalue)
         {
-            Store[tkey] = tValue;
+            Store[tkey] = tvalue;
             return Store[tkey];
         }
 
-        public void Delete(TKey tKey)
+        public void Delete(TKey tkey)
         {
-            Store.Remove(tKey);
+            Store.Remove(tkey);
         }
 
-        public IEntity Get(TKey tKey)
+        public TValue Get(TKey tkey)
         {
-            return Store[tKey];
+            return Store[tkey];
         }
 
-        public List<IEntity> GetAll()
+        public List<TValue> GetAll()
         {
             return Store.Values.ToList();
         }
