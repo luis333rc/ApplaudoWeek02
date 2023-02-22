@@ -8,6 +8,8 @@
 
         private ValidationDelegate validationDelegate;
 
+        public List<string> Errors { get => _errors; }
+
         public Validator(ValidationDelegate validator)
         {
             validationDelegate = validator;
