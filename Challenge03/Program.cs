@@ -28,14 +28,4 @@ namespace Challenge03
             Console.WriteLine(val.GetErrors());
         }
     }
-
-    public static class ValidatorExtensions
-    {
-        public static string GetErrors<T>(this Validator<T> validator)
-        {
-            var errors = validator.Errors.ToArray();
-
-            return string.Join(", ", errors);
-        }
-    }
 }
