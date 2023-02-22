@@ -9,13 +9,12 @@ namespace Challenge01
             try
             {
                 var repository = new RepositoryGeneric<int, EntityGeneric<int, string>>();
-
                 repository.Add(1, new EntityGeneric<int, string>(1, "C#"));
 
                 var entity2 = new EntityGeneric<int, string>(2, "Java");
                 var entity3 = new EntityGeneric<int, string>(3, "Ruby");
 
-                repository.Add(entity2.Id, new EntityGeneric<int, string>(entity2.Id, entity2.Value) );
+                repository.Add(entity2.Id, new EntityGeneric<int, string>(entity2.Id, entity2.Value));
                 repository.Add(entity3.Id, new EntityGeneric<int, string>(entity3.Id, entity3.Value));
 
                 repository.GetAll().ForEach(e => Console.WriteLine(e));
